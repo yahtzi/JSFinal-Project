@@ -14,7 +14,7 @@ let minusButton = document.getElementById("button-minus");
 let plusButton  = document.getElementById("button-plus");
 let equalsButton = document.getElementById("button-equals");
 let clearButton = document.getElementById("button-clear");
-let divide = document.getElementById("full-width");
+let display = document.getElementById("full-width");
 
 let numberButtons = [b0, b1, b2, b3, b4, b5, b6, b7, b8, b9];
 for (let i = 0; i < numberButtons.length; i++) {
@@ -24,3 +24,12 @@ for (let i = 0; i < numberButtons.length; i++) {
 function displayNumber() {
   console.log(this.innerText)  
 } 
+
+let operatorButtons = [divideButtons, multiplyButton, minusButtons, plusButton,equalButton];
+for (let i = 0; i < operatorButtons.length; i++) {
+    operatorButtons[i].addEventListener("click", displayOperator);
+}
+
+function displayOperator() {
+    console.log(this.innerText)
+}
