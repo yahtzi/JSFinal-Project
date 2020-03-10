@@ -25,7 +25,7 @@ function displayNumber() {
   console.log(this.innerText)  
 } 
 
-let operatorButtons = [divideButtons, multiplyButton, minusButtons, plusButton,equalButton];
+let operatorButtons = [divideButton, multiplyButton, minusButton, plusButton,equalsButton];
 for (let i = 0; i < operatorButtons.length; i++) {
     operatorButtons[i].addEventListener("click", displayOperator);
 }
@@ -33,3 +33,4 @@ for (let i = 0; i < operatorButtons.length; i++) {
 function displayOperator() {
     console.log(this.innerText)
 }
+
