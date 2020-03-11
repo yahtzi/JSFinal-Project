@@ -23,18 +23,20 @@ for (let i = 0; i < numberButtons.length; i++) {
     numberButtons[i].addEventListener("click", displayNumber);
 }
 
+let operatorButtons = [divideButton, multiplyButton, minusButton, plusButton];
+
 function displayNumber() {
     console.log(this.innerText)
     display.innerText = this.innerText;
-}
-
-let operatorButtons = [divideButton, multiplyButton, minusButton, plusButton];
-for (let i = 0; i < operatorButtons.length; i++) {
-    operatorButtons[i].addEventListener("click", displayOperator);
+    for (let i = 0; i < operatorButtons.length; i++) {
+        operatorButtons[i].addEventListener("click", displayOperator);
+    }
 }
 
 function displayOperator() {
     console.log(this.innerText)
-    display.innerText = this.innerText; 
+    display.innerText = this.innerText;
+    for (let i = 0; i < operatorButtons.length; i++) {
+        operatorButtons[i].removeEventListener("click", displayOperator);
+    }
 }
-
