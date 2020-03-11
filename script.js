@@ -11,10 +11,12 @@ let b9 = document.getElementById("button-9");
 let divideButton = document.getElementById("button-divide");
 let multiplyButton = document.getElementById("button-multiply");
 let minusButton = document.getElementById("button-minus");
-let plusButton  = document.getElementById("button-plus");
+let plusButton = document.getElementById("button-plus");
 let equalsButton = document.getElementById("button-equals");
 let clearButton = document.getElementById("button-clear");
-let display = document.getElementById("full-width");
+let display = document.getElementById("display");
+let calculator = document.querySelector("calculator");
+let result = document.querySelector("last-result");
 
 let numberButtons = [b0, b1, b2, b3, b4, b5, b6, b7, b8, b9];
 for (let i = 0; i < numberButtons.length; i++) {
@@ -22,15 +24,17 @@ for (let i = 0; i < numberButtons.length; i++) {
 }
 
 function displayNumber() {
-  console.log(this.innerText)  
-} 
+    console.log(this.innerText)
+    display.innerText = this.innerText;
+}
 
-let operatorButtons = [divideButton, multiplyButton, minusButton, plusButton,equalsButton];
+let operatorButtons = [divideButton, multiplyButton, minusButton, plusButton];
 for (let i = 0; i < operatorButtons.length; i++) {
     operatorButtons[i].addEventListener("click", displayOperator);
 }
 
 function displayOperator() {
     console.log(this.innerText)
+    display.innerText = this.innerText; 
 }
 
