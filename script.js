@@ -17,6 +17,10 @@ let clearButton = document.getElementById("button-clear");
 let display = document.getElementById("display");
 let calculator = document.querySelector("calculator");
 let lastResult = document.querySelector("last-result");
+let numberOne = '';
+let numberTwo = '';
+let operator = '';
+let enteredFirstNumber = true;
 
 let numberButtons = [b0, b1, b2, b3, b4, b5, b6, b7, b8, b9];
 for (let i = 0; i < numberButtons.length; i++) {
@@ -34,17 +38,18 @@ enableOperator();
 
 function displayNumber() {
     if (enteredFirstNumber) {
-        numberTwo += this.innerText;
+        numberOne += this.innerText;
     }
     else {
-        numberOne += this.innerText;
+        numberTwo += this.innerText;
     }
     display.innerText += this.innerText;
 }
 
 function displayOperator() {
-    console.log(this.innerText)
     display.innerText += this.innerText;
+    operator = this.innerText;
+    enteredFirstNumber = false;
     disableOperator();
 }
 
@@ -53,11 +58,6 @@ function disableOperator() {
         operatorButtons[i].removeEventListener("click", displayOperator);
     }
 }
-
-let numberOne = '';
-let numberTwo = '';
-let operator = '';
-let enteredFirstNumber = false;
 
 function displayNumberOne() {
 }
@@ -70,34 +70,38 @@ function clear() {
     numberOne = '';
     numberTwo = '';
     operator = '';
-    enteredFirstNumber = false;
+    enteredFirstNumber = true;
     display.innerText = '';
     enableOperator();
 }
 clearButton.addEventListener("click", clear);
 
 function result() {
-    compute();
+    console.log("here");
+    let answer = compute();
+    display.innerText = answer;
 }
 equalsButton.addEventListener("click", result);
 
 function compute() {
     let answer;
-    switch(answer) {
+    numberOne = parseInt(numberOne);
+    numberTwo = parseInt(numberTwo);
+    switch (operator) {
         case '+':
             answer = numberOne + numberTwo;
-            display.value = answer;
-        break;
+            break;
         case '-':
             answer = numberOne - numberTwo;
-        break;
+            break;
         case '/':
             answer = numberOne / numberTwo;
-        break;
+            break;
         case '*':
             answer = numberOne * numberTwo;
+            break;
+        default: 
         break;
     }
+    return answer;
 }
-
-sessionStorage.setItem("key", "value");
