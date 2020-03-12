@@ -77,23 +77,27 @@ function clear() {
 clearButton.addEventListener("click", clear);
 
 function result() {
-    
+    compute();
 }
+equalsButton.addEventListener("click", result);
 
 function compute() {
     let answer;
-    switch () {
+    switch(answer) {
         case '+':
-            answer = numberOne + numberTwo
+            answer = numberOne + numberTwo;
+            display.value = answer;
         break;
         case '-':
-            answer = numberOne - numberTwo
+            answer = numberOne - numberTwo;
         break;
         case '/':
-            answer = numberOne / numberTwo
+            answer = numberOne / numberTwo;
         break;
         case '*':
-            answer = numberOne * numberTwo
+            answer = numberOne * numberTwo;
         break;
     }
 }
+
+sessionStorage.setItem("key", "value");
