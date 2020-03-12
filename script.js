@@ -16,7 +16,7 @@ let equalsButton = document.getElementById("button-equals");
 let clearButton = document.getElementById("button-clear");
 let display = document.getElementById("display");
 let calculator = document.querySelector("calculator");
-let lastResult = document.querySelector("last-result");
+let lastResultDisplay = document.querySelector("last-result-display");
 let numberOne = '';
 let numberTwo = '';
 let operator = '';
@@ -77,11 +77,10 @@ function clear() {
 clearButton.addEventListener("click", clear);
 
 function result() {
-    console.log("here");
     let answer = compute();
     let expression = display.innerText + "=" + answer;
-    localStorage.setItem("lastExpression", );
-
+    localStorage.setItem("lastExpression", expression);
+    lastResultDisplay.innerText = expression;
     display.innerText = answer;
 }
 equalsButton.addEventListener("click", result);
