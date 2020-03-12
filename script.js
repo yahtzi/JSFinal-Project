@@ -16,7 +16,7 @@ let equalsButton = document.getElementById("button-equals");
 let clearButton = document.getElementById("button-clear");
 let display = document.getElementById("display");
 let calculator = document.querySelector("calculator");
-let result = document.querySelector("last-result");
+let lastResult = document.querySelector("last-result");
 
 let numberButtons = [b0, b1, b2, b3, b4, b5, b6, b7, b8, b9];
 for (let i = 0; i < numberButtons.length; i++) {
@@ -26,11 +26,12 @@ for (let i = 0; i < numberButtons.length; i++) {
 let operatorButtons = [divideButton, multiplyButton, minusButton, plusButton];
 
 function displayNumber() {
-    console.log(this.innerText)
-    display.innerText = this.innerText;
+    numberOne += this.innerText;
     for (let i = 0; i < operatorButtons.length; i++) {
         operatorButtons[i].addEventListener("click", displayOperator);
     }
+    displayNumberOne();
+    console.log(numberOne);
 }
 
 function displayOperator() {
@@ -39,4 +40,20 @@ function displayOperator() {
     for (let i = 0; i < operatorButtons.length; i++) {
         operatorButtons[i].removeEventListener("click", displayOperator);
     }
+}
+
+let numberOne = '';
+let numberTwo = '';
+let operator = '';
+
+function displayNumberOne() {
+    display.innerText = numberOne;
+}
+
+function clear() {
+
+}
+
+function compute() {
+    
 }
