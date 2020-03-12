@@ -16,11 +16,16 @@ let equalsButton = document.getElementById("button-equals");
 let clearButton = document.getElementById("button-clear");
 let display = document.getElementById("display");
 let calculator = document.querySelector("calculator");
-let lastResultDisplay = document.querySelector("last-result-display");
+let lastResultDisplay = document.getElementById("last-result-display");
 let numberOne = '';
 let numberTwo = '';
 let operator = '';
 let enteredFirstNumber = true;
+
+let lastResult = localStorage.getItem("lastExpression");
+if (lastResult != null) {
+    lastResultDisplay.innerText = lastResult;
+}
 
 let numberButtons = [b0, b1, b2, b3, b4, b5, b6, b7, b8, b9];
 for (let i = 0; i < numberButtons.length; i++) {
