@@ -79,6 +79,9 @@ clearButton.addEventListener("click", clear);
 function result() {
     console.log("here");
     let answer = compute();
+    let expression = display.innerText + "=" + answer;
+    localStorage.setItem("lastExpression", );
+
     display.innerText = answer;
 }
 equalsButton.addEventListener("click", result);
