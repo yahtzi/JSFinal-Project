@@ -25,18 +25,30 @@ for (let i = 0; i < numberButtons.length; i++) {
 
 let operatorButtons = [divideButton, multiplyButton, minusButton, plusButton];
 
-function displayNumber() {
-    numberOne += this.innerText;
+function enableOperator() {
     for (let i = 0; i < operatorButtons.length; i++) {
         operatorButtons[i].addEventListener("click", displayOperator);
     }
-    displayNumberOne();
-    console.log(numberOne);
+}
+enableOperator();
+
+function displayNumber() {
+    if (enteredFirstNumber) {
+        numberTwo += this.innerText;
+    }
+    else {
+        numberOne += this.innerText;
+    }
+    display.innerText += this.innerText;
 }
 
 function displayOperator() {
     console.log(this.innerText)
-    display.innerText = this.innerText;
+    display.innerText += this.innerText;
+    disableOperator();
+}
+
+function disableOperator() {
     for (let i = 0; i < operatorButtons.length; i++) {
         operatorButtons[i].removeEventListener("click", displayOperator);
     }
@@ -45,14 +57,24 @@ function displayOperator() {
 let numberOne = '';
 let numberTwo = '';
 let operator = '';
+let enteredFirstNumber = false;
 
 function displayNumberOne() {
-    display.innerText = numberOne;
+}
+
+function displayNumberTwo() {
+    display.innerText = numberTwo;
 }
 
 function clear() {
-
+    numberOne = '';
+    numberTwo = '';
+    operator = '';
+    enteredFirstNumber = false;
+    display.innerText = '';
+    enableOperator();
 }
+clearButton.addEventListener("click", clear);
 
 function compute() {
     
