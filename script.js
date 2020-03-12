@@ -76,6 +76,10 @@ function clear() {
 }
 clearButton.addEventListener("click", clear);
 
+function result() {
+    
+}
+
 function compute() {
     let answer;
     switch () {
