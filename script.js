@@ -77,5 +77,19 @@ function clear() {
 clearButton.addEventListener("click", clear);
 
 function compute() {
-    
+    let answer;
+    switch () {
+        case '+':
+            answer = numberOne + numberTwo
+        break;
+        case '-':
+            answer = numberOne - numberTwo
+        break;
+        case '/':
+            answer = numberOne / numberTwo
+        break;
+        case '*':
+            answer = numberOne * numberTwo
+        break;
+    }
 }
